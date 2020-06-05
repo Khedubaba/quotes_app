@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -35,8 +36,19 @@ class _QuoteListState extends State<QuoteList> {
         centerTitle: false,
       ),
       body: Column(
-        children: quotes.map((quote) => Text("${quote.text} - ${quote.author}")).toList(),
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: (){
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+        )).toList(),
       ),
     );
   }
 }
+//End of Code
+
+//children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+//children: quotes.map((quote) => Text("${quote.text} - ${quote.author}")).toList(),
