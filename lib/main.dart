@@ -8,7 +8,6 @@ void main() {
   ));
 }
 
-
 class QuoteList extends StatefulWidget {
   @override
   _QuoteListState createState() => _QuoteListState();
